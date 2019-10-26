@@ -16,7 +16,7 @@
     <body>
         <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
          <sql:query dataSource="${dataSource}" var="tipo">
-            SELECT id_tarea, nombre, descripcion, plazo, cumplimiento, id_usuario_asignado, proceso_id_proceso, estado_tarea_id_estado, indicador_id_indicador FROM tarea
+            SELECT id_tarea, nombre, descripcion, plazo, cumplimiento, id_usuario_asignado, proceso_id_proceso, estado_tarea_id_estado, indicador_id_indicador FROM tarea where id_usuario_asignado=${id}
         </sql:query> 
         <h1>Lista de tareas</h1>
         <table border="2">

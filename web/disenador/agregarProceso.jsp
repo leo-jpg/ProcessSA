@@ -37,7 +37,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <link href='//fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
         </head>
         <body>
-            <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASKTEST" password="admin"></sql:setDataSource>
+            <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
             <sql:query dataSource="${dataSource}" var="tipo">
                 SELECT id_usuario, usuario from usuario
             </sql:query> 
