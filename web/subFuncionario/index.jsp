@@ -253,7 +253,7 @@
     <li>Lista Funcionarios</li>
      <li>Reportar Problema</li>
      <li>Ejecutar Flujo</li>
-     <h1><a href="../index.jsp"> Menu Principal</a></h1>
+     <h1><a href="../procesoCerrarSesion"> Menu Principal</a></h1>
   </ul>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

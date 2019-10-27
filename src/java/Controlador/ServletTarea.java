@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import DAO.EstadoDAO;
 import DAO.TareaDAO;
 import Modelo.Tarea;
 import java.io.IOException;
@@ -33,7 +34,7 @@ public class ServletTarea extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String opcion = request.getParameter("btnAccion");
 
@@ -46,6 +47,12 @@ public class ServletTarea extends HttpServlet {
         if (opcion.equals("Eliminar")) {
             eliminar(request, response);
         }
+        if (opcion.equals("Aceptar")) {
+            aceptar(request, response);
+        }
+//        if (opcion.equals("Rechazar")) {
+//            rechazar(request, response);
+//        }
     }
 
     protected void agregar(HttpServletRequest request, HttpServletResponse response)
@@ -53,28 +60,26 @@ public class ServletTarea extends HttpServlet {
         try {
             HttpSession se = request.getSession();
             int id = (int) se.getAttribute("id");
-            
+
             String nombre = request.getParameter("txtNombre");
             String descripcion = request.getParameter("txtDescripcion");
 
-            String plazo = request.getParameter("DtPlazo");          
+            String plazo = request.getParameter("DtPlazo");
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            java.util.Date
-            formato = sdf.parse(plazo);
+            java.util.Date formato = sdf.parse(plazo);
             java.sql.Date fecha = new java.sql.Date(formato.getDate());
-                       
+
             int cumplimiento = 0;
             int id_usu_asig = Integer.parseInt(request.getParameter("cboUsuario"));
-          
+
             int id_proceso = Integer.parseInt(request.getParameter("cboProceso"));
             int id_estado = 1;
             int id_indicador = 1;
-           
-            
+
             Tarea tarea = new Tarea(nombre, descripcion, fecha, cumplimiento, id_usu_asig, id, id_proceso, id_estado, id_indicador);
 //            Tarea tarea = new Tarea(responsable, fecha, descripcion, cumplimiento, id_usu_asig, id_indicador, nombre, id_proceso);
             TareaDAO dao = new TareaDAO();
-            
+
             if (dao.create(tarea)) {
                 request.setAttribute("msjOK", "Tarea agregada correctamente");
             } else {
@@ -86,28 +91,27 @@ public class ServletTarea extends HttpServlet {
             response.sendRedirect("funcionario/agregarTarea.jsp");
         }
     }
-    
-     protected void modificar(HttpServletRequest request, HttpServletResponse response)
+
+    protected void modificar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             int id_tarea = Integer.parseInt(request.getParameter("cboID"));
-           String nombre = request.getParameter("txtNombre");
+            String nombre = request.getParameter("txtNombre");
             String descripcion = request.getParameter("txtDescripcion");
 
-            String plazo = request.getParameter("DtPlazo");          
+            String plazo = request.getParameter("DtPlazo");
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-            java.util.Date
-            formato = sdf.parse(plazo);
+            java.util.Date formato = sdf.parse(plazo);
             java.sql.Date fecha = new java.sql.Date(formato.getDate());
             int cumplimiento = Integer.parseInt(request.getParameter("nbCumplimiento"));
-            int id_usu_asig = Integer.parseInt(request.getParameter("cboUsuario"));         
+            int id_usu_asig = Integer.parseInt(request.getParameter("cboUsuario"));
             int id_proceso = Integer.parseInt(request.getParameter("cboProceso"));
-            int id_estado = Integer.parseInt(request.getParameter("cboEstado"));          
+            int id_estado = Integer.parseInt(request.getParameter("cboEstado"));
             int id_indicador = Integer.parseInt(request.getParameter("cboIndicador"));
-            
+
             Tarea tarea = new Tarea(id_tarea, nombre, descripcion, fecha, cumplimiento, id_usu_asig, id_proceso, id_estado, id_indicador);
             TareaDAO dao = new TareaDAO();
-            
+
             if (dao.update(tarea)) {
                 request.setAttribute("msjOK", "Tarea modificada correctamente");
             } else {
@@ -119,15 +123,15 @@ public class ServletTarea extends HttpServlet {
             response.sendRedirect("funcionario/modificarTarea.jsp");
         }
     }
-     
-      protected void eliminar(HttpServletRequest request, HttpServletResponse response)
+
+    protected void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             int id_tarea = Integer.parseInt(request.getParameter("cboID"));
-            
+
             Tarea tarea = new Tarea(id_tarea);
             TareaDAO dao = new TareaDAO();
-            
+
             if (dao.delete(tarea)) {
                 request.setAttribute("msjOK", "Tarea eliminada correctamente");
             } else {
@@ -139,6 +143,52 @@ public class ServletTarea extends HttpServlet {
             response.sendRedirect("funcionario/eliminarTarea.jsp");
         }
     }
+    
+    protected void aceptar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+       
+            int id_tarea = Integer.parseInt(request.getParameter("id"));
+            int id_estado = 2;
+   
+
+            Tarea tarea = new Tarea(id_tarea, id_estado);
+            EstadoDAO dao = new EstadoDAO();
+
+            if (dao.update(tarea)) {
+                request.setAttribute("msjOK", "Tarea aceptada correctamente");
+            } else {
+                request.setAttribute("msjNO", "Error al aceptar Tarea");
+            }
+        } catch (Exception e) {
+            request.setAttribute("msjNO", "Error: " + e.getMessage());
+        } finally {
+            request.getRequestDispatcher("procesoListaTareaSub").forward(request, response);
+        }
+    }
+    
+//    protected void rechazar(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        try {
+//       
+//            int id_tarea = Integer.parseInt(request.getParameter("id"));
+//            int id_estado = 3;
+//   
+//
+//            Tarea tarea = new Tarea(id_tarea, id_estado);
+//            EstadoDAO dao = new EstadoDAO();
+//
+//            if (dao.update(tarea)) {
+//                request.setAttribute("msjOK", "Tarea rechazada correctamente");
+//            } else {
+//                request.setAttribute("msjNO", "Error al rechazar Tarea");
+//            }
+//        } catch (Exception e) {
+//            request.setAttribute("msjNO", "Error: " + e.getMessage());
+//        } finally {
+//            request.getRequestDispatcher("procesoListaTareaSub").forward(request, response);
+//        }
+//    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

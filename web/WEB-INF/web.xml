@@ -60,6 +60,10 @@
         <servlet-name>ServletUnidadInterna</servlet-name>
         <servlet-class>Controlador.ServletUnidadInterna</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletJustificativo</servlet-name>
+        <servlet-class>Controlador.ServletJustificativo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletCerrarSesion</servlet-name>
         <url-pattern>/procesoCerrarSesion</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>ServletUnidadInterna</servlet-name>
         <url-pattern>/procesoUnidadInterna</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletJustificativo</servlet-name>
+        <url-pattern>/procesoJustificativo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

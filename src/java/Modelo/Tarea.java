@@ -27,6 +27,13 @@ public class Tarea {
     public Tarea() {
     }
 
+    public Tarea(int id_tarea, int estado_tarea_id_estado) {
+        this.id_tarea = id_tarea;
+        this.estado_tarea_id_estado = estado_tarea_id_estado;
+    }
+    
+    
+
     public Tarea(int id_tarea, String nombre, String descripcion, Date plazo, int cumplimiento, int id_usuario_asignado, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador) {
         this.id_tarea = id_tarea;
         this.nombre = nombre;

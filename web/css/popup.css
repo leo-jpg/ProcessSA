@@ -1,0 +1,52 @@
+.active{
+	background: #E2472F;
+	color: #fff;
+	border-radius: 6px;	
+}
+
+.modal{
+	width:700px;
+	height:350px;
+        margin-left: -450px;
+        margin-top: 120px;
+	background-color: rgba(0,0,0,0.7);
+	position:absolute;
+	top:0%;	
+	justify-content: center;
+	align-items: center;
+	display:none;
+}
+
+.modal-content{
+	width:700px;
+	height:150px;
+	margin-left:170px;
+	margin-top:0px;
+	background: none;
+	opacity: 1;
+	float:left;
+	padding:40px;
+	position:relative;
+	border-radius: 10px;
+}
+
+/*h1{
+	text-align:center;
+	color:white;	
+}*/
+
+
+.close{
+	margin-left:450px;
+	margin-top: -30px;
+	right:14px;
+	font-size: 38px;
+	line-height:20px;
+	border-radius:50%;
+	cursor:pointer;
+        color: white;
+}
+.close:hover{
+	background:#999;
+	opacity:0.7;
+}

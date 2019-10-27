@@ -24,7 +24,7 @@
         </style>
     </head>
     <body>
-        <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASKTEST" password="admin"></sql:setDataSource>
+        <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
         <sql:query dataSource="${dataSource}" var="tipo">
             SELECT id_rol, descripcion FROM rol 
         </sql:query> 
