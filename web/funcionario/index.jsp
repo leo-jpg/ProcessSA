@@ -91,11 +91,11 @@
                     </a>
                   </li>
                        <li class="slider--item">
-                    <a href="#0">
+                           <a href="listaTareaRechazada.jsp">
                       <div class="slider--item-image">
                           <img src="assets/img/devolver.jpg" alt="">
                       </div>
-                      <p class="slider--item-title">Devolver</p>
+                      <p class="slider--item-title">Reasignar Tarea</p>
                     </a>
                   </li>
                 </ul>

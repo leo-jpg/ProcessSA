@@ -6,6 +6,7 @@
 package Controlador;
 
 import DAO.UsuarioDAO;
+import Modelo.Tarea;
 import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,11 +47,13 @@ public class ServletLogin extends HttpServlet {
             String pass = request.getParameter("txtPass");
 
             Usuario usuario = new Usuario(usu, pass);
+            
             //VALIDAMOS EL USUARIO
             UsuarioDAO dao = new UsuarioDAO();  
             
             HttpSession se = request.getSession();
             se.setAttribute("sesion", usuario);
+            
 
             if (dao.read(usuario).getId_usuario()==0) {
                 request.setAttribute("msjNO", "Credenciales Incorrectas");

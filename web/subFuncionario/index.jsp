@@ -56,17 +56,17 @@
               <div class="work--lockup">
                 <ul class="slider">
                   <li class="slider--item slider--item-left">
-                    <a href="modificarTarea.jsp">
+                      <a href="desglosarTarea.jsp">
                       <div class="slider--item-image">
                           <img src="assets/img/modificarTarea.jpg" alt="">
                       </div>
-                      <p class="slider--item-title">Modificar Tarea</p>
+                      <p class="slider--item-title">Desglorasar Tarea</p>
                     </a>
                   </li>
                   <li class="slider--item slider--item-center">
                     <a href="../procesoListaTareaSub">
                       <div class="slider--item-image">
-                      <img src="assets/img/agregarTarea.jpg" alt="">
+                      <img src="assets/img/visualizarEstado.jpg" alt="">
                       </div>
                       <p class="slider--item-title">Listar Tareas</p>
                     </a>
@@ -74,7 +74,7 @@
                   <li class="slider--item slider--item-right">
                     <a href="#0">
                       <div class="slider--item-image">
-                          <img src="assets/img/visualizarEstado.jpg" alt="">
+                          <img src="assets/img/agregarTarea.jpg" alt="">
                       </div>
                       <p class="slider--item-title">Visualizar Estado</p>
                     </a>
@@ -253,7 +253,7 @@
     <li>Lista Funcionarios</li>
      <li>Reportar Problema</li>
      <li>Ejecutar Flujo</li>
-     <h1><a href="../procesoCerrarSesion"> Menu Principal</a></h1>
+     <h1><a href="../procesoCerrarSesion"> Cerrar Sesion</a></h1>
   </ul>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
