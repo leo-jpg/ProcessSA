@@ -40,21 +40,21 @@
                     <th colspan="2">ACCIONES</th>
                 </tr>           
             </thead>
-            <c:forEach var="aux" items="${tipo.rows}">
+            <c:forEach var="aux" items="${lista}">
                 <tbody>
                     <tr>
-                        <td>${aux.id_tarea}</td>
-                        <td>${aux.nombre}</td>
-                        <td>${aux.descripcion}</td>
-                        <td>${aux.plazo}</td>
-                        <td>${aux.cumplimiento}</td>
-                        <td>${aux.id_usuario_asignado}</td>
-                        <td>${aux.proceso_id_proceso}</td>
-                        <td>${aux.estado_tarea_id_estado}</td>
-                        <td>${aux.indicador_id_indicador}</td>
+                         <td>${aux.getId_tarea()}</td>
+                         <td>${aux.getNombre()}</td>
+                         <td>${aux.getDescripcion()}</td>
+                         <td>${aux.getPlazo()}</td>
+                         <td>${aux.getCumplimiento()}</td>
+                         <td>${aux.getUsuasig()}</td>
+                         <td>${aux.getProceso()}</td>
+                         <td>${aux.getEstado()}</td>
+                         <td>${aux.getIndicador()}</td>
                         <td>
                             <form action="procesoTarea" method="POST">
-                                <input type="hidden" name="id" value="${aux.id_tarea}">
+                                <input type="hidden" name="id" value="${aux.getId_tarea()}">
                                 <input type="submit" name="btnAccion" value="Aceptar">
                             </form>
 

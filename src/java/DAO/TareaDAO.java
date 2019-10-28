@@ -121,11 +121,10 @@ public class TareaDAO implements Metodos<Tarea>{
                 tarea.setDescripcion(rs.getString("descripcion"));
                 tarea.setPlazo(rs.getDate("plazo"));
                 tarea.setCumplimiento(rs.getInt("cumplimiento"));
-                tarea.setId_usuario_asignado(rs.getInt("id_usuario_asignado"));
-                tarea.setUsuario_id_usuario(rs.getInt("usuario_id_usuario"));
-                tarea.setProceso_id_proceso(rs.getInt("proceso_id_proceso"));
-                tarea.setIndicador_id_indicador(rs.getInt("estado_tarea_id_estado"));
-                tarea.setIndicador_id_indicador(rs.getInt("indicador_id_indicador"));
+                tarea.setUsuasig(rs.getString("usuasig"));
+                tarea.setEstado(rs.getString("estado"));
+                tarea.setProceso(rs.getString("proceso"));
+                tarea.setIndicador(rs.getString("indicador"));
                 lista.add(tarea);
             }
         } catch (Exception e) {

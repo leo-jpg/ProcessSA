@@ -22,6 +22,10 @@ public class Tarea {
     private int proceso_id_proceso;
     private int estado_tarea_id_estado;
     private int indicador_id_indicador;
+    private String usuasig;
+    private String proceso;
+    private String estado;
+    private String indicador;
 
 
     public Tarea() {
@@ -31,9 +35,21 @@ public class Tarea {
         this.id_tarea = id_tarea;
         this.estado_tarea_id_estado = estado_tarea_id_estado;
     }
-    
-    
 
+    public Tarea(int id_tarea, String nombre, String descripcion, Date plazo, int cumplimiento, String usuasig, String proceso, String estado, String indicador) {
+        this.id_tarea = id_tarea;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.plazo = plazo;
+        this.cumplimiento = cumplimiento;
+        this.usuasig = usuasig;
+        this.proceso = proceso;
+        this.estado = estado;
+        this.indicador = indicador;
+    }
+
+   
+   
     public Tarea(int id_tarea, String nombre, String descripcion, Date plazo, int cumplimiento, int id_usuario_asignado, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador) {
         this.id_tarea = id_tarea;
         this.nombre = nombre;
@@ -157,6 +173,39 @@ public class Tarea {
     public void setIndicador_id_indicador(int indicador_id_indicador) {
         this.indicador_id_indicador = indicador_id_indicador;
     }
+    
+     public String getUsuasig() {
+        return usuasig;
+    }
+
+    public void setUsuasig(String usuasig) {
+        this.usuasig = usuasig;
+    }
+
+    public String getProceso() {
+        return proceso;
+    }
+
+    public void setProceso(String proceso) {
+        this.proceso = proceso;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getIndicador() {
+        return indicador;
+    }
+
+    public void setIndicador(String indicador) {
+        this.indicador = indicador;
+    }
+    
 
     @Override
     public String toString() {
