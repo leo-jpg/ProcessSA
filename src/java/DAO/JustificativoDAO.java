@@ -17,7 +17,7 @@ import java.util.List;
  * @author RepjA
  */
 public class JustificativoDAO implements Metodos<Justificativo>{
-    private static final String SQL_CREATE = "{sp_insertar_jus(?,?)}";
+    private static final String SQL_INSERT = "{sp_insertar_jus(?,?)}";
     
     private static final Conexion conexion = Conexion.estado();
 
@@ -25,7 +25,7 @@ public class JustificativoDAO implements Metodos<Justificativo>{
     public boolean create(Justificativo generico) {
         PreparedStatement pre;
         try {
-            pre = conexion.getConnection().prepareCall(SQL_CREATE);
+            pre = conexion.getConnection().prepareCall(SQL_INSERT);
             pre.setString(1, generico.getMensaje());
             pre.setInt(2, generico.getTarea_id_tarea());
             

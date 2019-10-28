@@ -61,7 +61,7 @@
                 <div class="card-body">
                     <h2 class="title">Listado</h2>
                     <form method="">
-                        <div class="input-group" style="color: white">
+                        <div class="input-group">
                                     
                             
                             <table border="2" style="width: 271px;">

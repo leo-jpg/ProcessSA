@@ -50,9 +50,9 @@ public class ServletTarea extends HttpServlet {
         if (opcion.equals("Aceptar")) {
             aceptar(request, response);
         }
-//        if (opcion.equals("Rechazar")) {
-//            rechazar(request, response);
-//        }
+        if (opcion.equals("Rechazar")) {
+            rechazar(request, response);
+        }
     }
 
     protected void agregar(HttpServletRequest request, HttpServletResponse response)
@@ -64,6 +64,7 @@ public class ServletTarea extends HttpServlet {
             String nombre = request.getParameter("txtNombre");
             String descripcion = request.getParameter("txtDescripcion");
 
+//            String plazo = request.getParameter("DtPlazo");
             String plazo = request.getParameter("DtPlazo");
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             java.util.Date formato = sdf.parse(plazo);
@@ -167,28 +168,28 @@ public class ServletTarea extends HttpServlet {
         }
     }
     
-//    protected void rechazar(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        try {
-//       
-//            int id_tarea = Integer.parseInt(request.getParameter("id"));
-//            int id_estado = 3;
-//   
-//
-//            Tarea tarea = new Tarea(id_tarea, id_estado);
-//            EstadoDAO dao = new EstadoDAO();
-//
-//            if (dao.update(tarea)) {
-//                request.setAttribute("msjOK", "Tarea rechazada correctamente");
-//            } else {
-//                request.setAttribute("msjNO", "Error al rechazar Tarea");
-//            }
-//        } catch (Exception e) {
-//            request.setAttribute("msjNO", "Error: " + e.getMessage());
-//        } finally {
-//            request.getRequestDispatcher("procesoListaTareaSub").forward(request, response);
-//        }
-//    }
+    protected void rechazar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+       
+            int id_tarea = Integer.parseInt(request.getParameter("id"));
+            int id_estado = 3;
+   
+
+            Tarea tarea = new Tarea(id_tarea, id_estado);
+            EstadoDAO dao = new EstadoDAO();
+
+            if (dao.update(tarea)) {
+                request.setAttribute("msjOK", "Tarea rechazada correctamente");
+            } else {
+                request.setAttribute("msjNO", "Error al rechazar Tarea");
+            }
+        } catch (Exception e) {
+            request.setAttribute("msjNO", "Error: " + e.getMessage());
+        } finally {
+            request.getRequestDispatcher("procesoListaTareaSub").forward(request, response);
+        }
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
