@@ -33,10 +33,10 @@ public class UsuarioDAO implements Metodos<Usuario>{
             pre.setString(2, generico.getContrasena());
             pre.setString(3, generico.getNombre());
             pre.setString(4, generico.getApellido());
-            pre.setInt(5, generico.getRol_id_rol());
-            pre.setString(6, generico.getDireccion());
-            pre.setString(7, generico.getRut());
-            pre.setString(8, generico.getEmail());
+            pre.setString(5, generico.getDireccion());
+            pre.setString(6, generico.getRut());
+            pre.setString(7, generico.getEmail());
+            pre.setInt(8, generico.getRol_id_rol());
             pre.setInt(9, generico.getUnidad_interna_id_unidad());
             if (pre.executeUpdate() > 0) {
                 return true;
@@ -58,10 +58,10 @@ public class UsuarioDAO implements Metodos<Usuario>{
             pre.setString(2, generico.getUsuario());
             pre.setString(3, generico.getContrasena());
             pre.setString(4, generico.getNombre());
-            pre.setString(5, generico.getApellido());
-            pre.setInt(6, generico.getRol_id_rol());
-            pre.setString(7, generico.getDireccion());
-            pre.setString(8, generico.getEmail());
+            pre.setString(5, generico.getApellido());           
+            pre.setString(6, generico.getDireccion());
+            pre.setString(7, generico.getEmail());
+            pre.setInt(8, generico.getRol_id_rol());
             pre.setInt(9, generico.getUnidad_interna_id_unidad());
             if (pre.executeUpdate() > 0) {
                 return true;

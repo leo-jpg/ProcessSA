@@ -1,74 +1,80 @@
-/*.activo{
-	background: #E2472F;
-	color: #fff;
-	border-radius: 6px;	
-}*/
-
-.modal{
-	width:100%;
-	height:100%;
-	background-color: rgba(0,0,0,0.7);
-	position:absolute;
-	top:0%;	
-	justify-content: center;
-	align-items: center;
-	display:none;
+.overlay{
+    background: rgba(0,0,0,.3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
 }
 
-.modal-content{
-	width:700px;
-	height:150px;
-	margin-left:350px;
-	margin-top:250px;
-	background: none;
-	opacity: 1;
-	float:left;
-	padding:40px;
-	position:relative;
-	border-radius: 10px;
+.overlay.active{
+    visibility: visible;
 }
 
-h1{
-	text-align:center;
-	color:white;	
+.popup{
+    background: #f8f8f8;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+    width: 600px;
+    
+    
 }
 
-
-button{
-	border: 0;
-        background: none;
-        margin: 30px 10px;
-        text-align: center;
-        border: 2px solid #2ecc71;
-        padding: 14px 40px;
-        outline: none;
-        color: white;
-        border-radius: 24px;
-        transition: 0.25s;
-        cursor: pointer;
-        text-decoration: none;
+.popup .btn-cerrar-popup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #BBBBBB;
 }
 
-button:hover{
-	background: #2ecc71; 
+.popup .btn-cerrar-popup:hover{
+    color: #000;
 }
 
-.close{
-	position:absolute;
-	top:0;
-	right:14px;
-	font-size: 38px;
-	line-height:20px;
-	border-radius:50%;
-	cursor:pointer;
-        color: white;
-}
-.close:hover{
-	background:#999;
-	opacity:0.7;
+.popup h3{
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 10px;
+/*    opacity: 0;*/
 }
 
-.buttons{
-	position:absolute;
-	top:0;
+.popup form .contenedor-inputs{
+    
 }
+
+.popup form .contenedor-inputs textarea{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 52px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid #BBBBBB;
+    height: 100px;
+}
+
+.popup form .btn-submit{
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: #fff;
+    background: #5E7DE3;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.popup form .btn-submit:hover{
+    background: rgba(94,125,227,.7);
+}
+
+/*/////////////////////////////////////////////////// */
+
+

@@ -14,7 +14,10 @@
         <title>Lista tareas</title>
         <script src="js/jquery-3.3.1.js"></script>
         <script src="js/popup.js"></script>
-        <link rel="stylesheet" href="css/popup.css">
+
+        <link rel="stylesheet" href="subFuncionario/css/popup.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 
     </head>
     <body>
@@ -24,73 +27,83 @@
             FROM tarea where id_usuario_asignado=${id}
         </sql:query> 
 
-        <h1>Lista de tareas</h1><a href="index.jsp"><button>Volver</button></a>
-        <table border="2">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>DESCRIPCION</th>
-                    <th>PLAZO</th>         
-                    <th>CUMPLIMIENTO</th>
-                    <th>USUARIO ASIGNADO</th>
-                    <th>PROCESO</th>
-                    <th>ESTADO TAREA</th>
-                    <th>INDICADOR</th>
-                    <th colspan="2">ACCIONES</th>
-                </tr>           
-            </thead>
-            <c:forEach var="aux" items="${tipo.rows}">
-                <tbody>
-                    <tr>
-                        <td>${aux.id_tarea}</td>
-                        <td>${aux.nombre}</td>
-                        <td>${aux.descripcion}</td>
-                        <td>${aux.plazo}</td>
-                        <td>${aux.cumplimiento}</td>
-                        <td>${aux.id_usuario_asignado}</td>
-                        <td>${aux.proceso_id_proceso}</td>
-                        <td>${aux.estado_tarea_id_estado}</td>
-                        <td>${aux.indicador_id_indicador}</td>
-                        <td>
-                            <form action="procesoTarea" method="POST">
-                                <input type="hidden" name="id" value="${aux.id_tarea}">
-                                <input type="submit" name="btnAccion" value="Aceptar">
-                                <input type="submit" name="btnAccion" value="Rechazar">
-                            </form>
-                        </td>
-                        <!--
-                        <td>
-                            <form action="procesoJustificativo" method="POST">
-                                <input type="hidden" name="id" value="${aux.id_tarea}">
-                                <a href="#" class="active">Rechazar</a>    
-                                <!--OPEN MODAL
-
-                                <div class="modal">
-
-                                    <div class="modal-content">
-                                        <div class="close">&times;</div>
-                                        <h2>Justificativo</h2>
-                                        <input type="text" name="txtMensaje" required="">
-                                        <textarea style="width: 300px; height: 100px;" name="txtMensaje"></textarea>
-                                        <div class="buttons">
-                                            <input type="submit" name="btnAccion" value="Enviar">                                      
-                                        </div>                                     
-                                    </div>
-
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Tareas recibidas</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOMBRE</th>
+                                <th>DESCRIPCION</th>
+                                <th>PLAZO</th>         
+                                <th>CUMPLIMIENTO</th>
+                                <th>PROCESO</th>
+                                <th>ESTADO TAREA</th>
+                                <th>INDICADOR</th>
+                                <th colspan="2">ACCIONES</th>
+                                <!--<th>JUSTIFICATIVO</th>-->
+                            </tr>
+                        </thead>
+                        <c:forEach var="aux" items="${tipo.rows}">
+                            <tbody>
+                                <tr>
+                                    <td>${aux.id_tarea}</td>
+                                    <td>${aux.nombre}</td>
+                                    <td>${aux.descripcion}</td>
+                                    <td>${aux.plazo}</td>
+                                    <td>${aux.cumplimiento}</td>
+                                    <td>${aux.proceso_id_proceso}</td>
+                                    <td>${aux.estado_tarea_id_estado}</td>
+                                    <td>${aux.indicador_id_indicador}</td>
+                                    <td>
+                                        <form action="procesoTarea" method="POST">
+                                            <input type="hidden" name="id" value="${aux.id_tarea}">
+                                            <input type="submit" name="btnAccion" value="Aceptar" class="btn btn-primary">
+                                        </form>
+                                    </td>
+                                    <td>  
+                                        <form action="procesoTarea" method="POST">
+                                            <input type="hidden" name="id" value="${aux.id_tarea}">
+                                            <input type="submit" name="btnAccion" value="Rechazar" class="btn btn-danger"> 
+                                        </form>
+                                   <!--<button class="btn btn-danger add_product" id="btn-abrir-popup" value="${aux.id_tarea}">Rechazar</button>-->
+                                    </td>
+                                    <!--
+                                    <td>
+                                        <textarea></textarea>
+                                    </td>
+                                    -->
+                                </tr>
+                            </tbody>  
+                        </c:forEach>
+                    </table>
+                    <!--
+                    <form action="procesoJustificativo" method="POST">
+                        <div class="overlay" id="overlay">
+                            <div class="popup" id="popup">
+                                <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                                <h3>Justificación Tarea: ${aux.id_tarea}</h3>
+                                <div class="contenedor-inputs">
+                                    <textarea placeholder="Escriba aqui su justificación" name="txtMensaje"></textarea>
                                 </div>
-                                <!--CLOSE MODAL
-                            </form>
-                            
-                        </td>
--->
-                    </tr>
+                                <input type="submit" name="btnAccion" class="btn-submit" value="Enviar">
+                            </div>
+                        </div> 
+                        <script src="subFuncionario/js/popup.js"></script>
+                    </form>
+                    -->
+                </div>
+            </div>
+            <br>
+            <div style="text-align: right">
+                <a href="subFuncionario/index.jsp"<button class="btn btn-success">Volver</a>
+            </div>
+        </div>
 
-                </tbody>
-
-            </c:forEach>
-        </table>    
-
-        <!--</form>-->
     </body>
 </html>
+

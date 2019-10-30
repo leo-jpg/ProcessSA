@@ -51,10 +51,10 @@ public class ServletUsuario extends HttpServlet {
             String contrasena = request.getParameter("txtPass");
             String nombre = request.getParameter("txtNombre");
             String apellido = request.getParameter("txtApellido");
-            int id_rol = Integer.parseInt(request.getParameter("cboRol"));
             String direccion = request.getParameter("txtDireccion");
             String rut = request.getParameter("txtRut");
             String email = request.getParameter("txtEmail");
+            int id_rol = Integer.parseInt(request.getParameter("cboRol"));
             int id_unidad = Integer.parseInt(request.getParameter("cboUnidad"));
 
             Usuario usuario = new Usuario(user, contrasena, nombre, apellido, id_rol, direccion, rut, email, id_unidad);
@@ -80,10 +80,10 @@ public class ServletUsuario extends HttpServlet {
             String contrasena = request.getParameter("txtPass");
             String nombre = request.getParameter("txtNombre");
             String apellido = request.getParameter("txtApellido");
-            int id_rol = Integer.parseInt(request.getParameter("cboRol"));
             String direccion = request.getParameter("txtDireccion");
             String rut = request.getParameter("txtRut");
             String email = request.getParameter("txtEmail");
+            int id_rol = Integer.parseInt(request.getParameter("cboRol"));            
             int id_unidad = Integer.parseInt(request.getParameter("cboUnidad"));
 
             Usuario usuario = new Usuario(id_usuario,user, contrasena, nombre, apellido, id_rol, direccion, rut, email, id_unidad);

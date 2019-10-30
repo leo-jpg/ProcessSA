@@ -53,6 +53,7 @@ public class ServletLogin extends HttpServlet {
             
             HttpSession se = request.getSession();
             se.setAttribute("sesion", usuario);
+ 
             
 
             if (dao.read(usuario).getId_usuario()==0) {

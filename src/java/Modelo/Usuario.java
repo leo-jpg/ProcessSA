@@ -15,10 +15,10 @@ public class Usuario {
     private String contrasena;
     private String nombre;
     private String apellido;
-    private int rol_id_rol;
     private String direccion;
     private String rut;
     private String email;
+    private int rol_id_rol;
     private int unidad_interna_id_unidad;
     private int id_rol;
     private int id_unidad;
