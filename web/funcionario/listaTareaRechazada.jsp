@@ -53,9 +53,9 @@
                                     <td>${aux.proceso_id_proceso}</td>
                                     <td>${aux.indicador_id_indicador}</td>
                                     <td>
-                                        <form action="reasignarTarea.jsp" method="POST">
+                                        <form action="../procesoReasignarTarea" method="POST">
                                             <input type="hidden" name="id" value="${aux.id_tarea}">
-                                            <input type="submit" value="Reasignar" class="btn btn-primary">
+                                            <input type="submit" name="btnAccion" value="Reasignar" class="btn btn-primary">
                                         </form>
                                     </td>
                                 </tr>

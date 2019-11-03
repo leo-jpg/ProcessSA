@@ -65,12 +65,15 @@
                                             <input type="submit" name="btnAccion" value="Aceptar" class="btn btn-primary">
                                         </form>
                                     </td>
-                                    <td>  
+                                    <td> 
+                                        
                                         <form action="procesoTarea" method="POST">
                                             <input type="hidden" name="id" value="${aux.id_tarea}">
                                             <input type="submit" name="btnAccion" value="Rechazar" class="btn btn-danger"> 
                                         </form>
-                                   <!--<button class="btn btn-danger add_product" id="btn-abrir-popup" value="${aux.id_tarea}">Rechazar</button>-->
+                                        
+              
+                                   <!--<button class="active" id="btn-abrir-popup" value="${aux.id_tarea}">Rechazar</button>-->
                                     </td>
                                     <!--
                                     <td>
@@ -81,7 +84,7 @@
                             </tbody>  
                         </c:forEach>
                     </table>
-                    <!--
+                   <!--
                     <form action="procesoJustificativo" method="POST">
                         <div class="overlay" id="overlay">
                             <div class="popup" id="popup">

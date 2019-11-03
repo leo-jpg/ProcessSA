@@ -68,7 +68,7 @@ public class ServletTarea extends HttpServlet {
             String plazo = request.getParameter("DtPlazo");
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             java.util.Date formato = sdf.parse(plazo);
-            java.sql.Date fecha = new java.sql.Date(formato.getDate());
+            java.sql.Date fecha = new java.sql.Date(formato.getTime());
 
             int cumplimiento = 0;
             int id_usu_asig = Integer.parseInt(request.getParameter("cboUsuario"));
@@ -81,7 +81,12 @@ public class ServletTarea extends HttpServlet {
 //            Tarea tarea = new Tarea(responsable, fecha, descripcion, cumplimiento, id_usu_asig, id_indicador, nombre, id_proceso);
             TareaDAO dao = new TareaDAO();
 
+            HttpSession ses = request.getSession();
+            ses.setAttribute("sesion", tarea);
+            
             if (dao.create(tarea)) {
+                request.getSession().setAttribute("idtarea", tarea.getId_tarea());
+                request.getSession().setAttribute("nombretarea", tarea.getNombre());
                 request.setAttribute("msjOK", "Tarea agregada correctamente");
             } else {
                 request.setAttribute("msjNO", "Error al agregar Tarea");
@@ -144,14 +149,13 @@ public class ServletTarea extends HttpServlet {
             response.sendRedirect("funcionario/eliminarTarea.jsp");
         }
     }
-    
+
     protected void aceptar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-       
+
             int id_tarea = Integer.parseInt(request.getParameter("id"));
             int id_estado = 2;
-   
 
             Tarea tarea = new Tarea(id_tarea, id_estado);
             EstadoDAO dao = new EstadoDAO();
@@ -167,14 +171,13 @@ public class ServletTarea extends HttpServlet {
             request.getRequestDispatcher("procesoListaTareaSub").forward(request, response);
         }
     }
-    
+
     protected void rechazar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-       
+
             int id_tarea = Integer.parseInt(request.getParameter("id"));
             int id_estado = 3;
-   
 
             Tarea tarea = new Tarea(id_tarea, id_estado);
             EstadoDAO dao = new EstadoDAO();

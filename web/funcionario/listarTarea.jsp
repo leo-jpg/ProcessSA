@@ -11,44 +11,59 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista tareas</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+        <title>Lista tareas rechazadas</title>
     </head>
     <body>
         <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
          <sql:query dataSource="${dataSource}" var="tipo">
-            SELECT id_tarea, nombre, descripcion, plazo, cumplimiento, id_usuario_asignado, proceso_id_proceso, estado_tarea_id_estado, indicador_id_indicador FROM tarea WHERE usuario_id_usuario = ${id}
+            SELECT id_tarea, nombre, descripcion, plazo, cumplimiento, id_usuario_asignado, proceso_id_proceso, estado_tarea_id_estado, indicador_id_indicador FROM tarea 
+            WHERE usuario_id_usuario = ${id}
         </sql:query> 
-        <h1>Lista de tareas</h1>
-        <table border="2">
-        <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOMBRE</th>
-                        <th>DESCRIPCION</th>
-                        <th>PLAZO</th>         
-                        <th>CUMPLIMIENTO</th>
-                        <th>USUARIO ASIGNADO</th>
-                        <th>PROCESO</th>
-                        <th>ESTADO TAREA</th>
-                        <th>INDICADOR</th>
-                        
-                    </tr>           
-                </thead>
-                <c:forEach var="aux" items="${lista}">
-                    <tbody>
-                        <tr>
-                            <td>${aux.getId_tarea()}</td>
-                            <td>${aux.getNombre()}</td>
-                            <td>${aux.getDescripcion()}</td>
-                            <td>${aux.getPlazo()}</td>
-                            <td>${aux.getCumplimiento()}</td>
-                            <td>${aux.getUsuasig()}</td>
-                            <td>${aux.getProceso()}</td>
-                            <td>${aux.getEstado()}</td>
-                            <td>${aux.getIndicador()}</td>
-                        </tr>
-                    </tbody>
-                </c:forEach>
-        </table>
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Lista tareas</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOMBRE</th>
+                                <th>DESCRIPCION</th>
+                                <th>PLAZO</th>         
+                                <th>CUMPLIMIENTO</th>
+                                <th>USUARIO ASIGNADO</th>
+                                <th>PROCESO</th>
+                                <th>INDICADOR</th>
+                            </tr>
+                        </thead>
+                        <c:forEach var="aux" items="${tipo.rows}">
+                            <tbody>
+                                <tr>
+                                    <td>${aux.id_tarea}</td>
+                                    <td>${aux.nombre}</td>
+                                    <td>${aux.descripcion}</td>
+                                    <td>${aux.plazo}</td>
+                                    <td>${aux.cumplimiento}</td>
+                                    <td>${aux.id_usuario_asignado}</td>
+                                    <td>${aux.proceso_id_proceso}</td>
+                                    <td>${aux.indicador_id_indicador}</td>
+                                </tr>
+                            </tbody>  
+                        </c:forEach>
+                    </table> 
+                   
+                </div>
+            </div>
+            <br>
+            <div style="text-align: right">
+                <a href="funcionario/index.jsp"<button class="btn btn-success">Volver</a>
+            </div>
+        </div>
+            
     </body>
 </html>
+

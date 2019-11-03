@@ -31,6 +31,12 @@ public class Tarea {
     public Tarea() {
     }
 
+    public Tarea(int id_tarea, int id_usuario_asignado, int estado_tarea_id_estado) {
+        this.id_tarea = id_tarea;
+        this.id_usuario_asignado = id_usuario_asignado;
+        this.estado_tarea_id_estado = estado_tarea_id_estado;
+    }
+    
     public Tarea(int id_tarea, int estado_tarea_id_estado) {
         this.id_tarea = id_tarea;
         this.estado_tarea_id_estado = estado_tarea_id_estado;
@@ -47,9 +53,7 @@ public class Tarea {
         this.estado = estado;
         this.indicador = indicador;
     }
-
-   
-   
+ 
     public Tarea(int id_tarea, String nombre, String descripcion, Date plazo, int cumplimiento, int id_usuario_asignado, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador) {
         this.id_tarea = id_tarea;
         this.nombre = nombre;
@@ -61,9 +65,7 @@ public class Tarea {
         this.estado_tarea_id_estado = estado_tarea_id_estado;
         this.indicador_id_indicador = indicador_id_indicador;
     }
-    
-    
-    
+      
 
     public Tarea(int id_tarea) {
         this.id_tarea = id_tarea;
@@ -204,16 +206,10 @@ public class Tarea {
 
     public void setIndicador(String indicador) {
         this.indicador = indicador;
-    }
-    
+    }    
 
     @Override
     public String toString() {
         return "Tarea{" + "id_tarea=" + id_tarea + ", nombre=" + nombre + ", descripcion=" + descripcion + ", plazo=" + plazo + ", cumplimiento=" + cumplimiento + ", id_usuario_asignado=" + id_usuario_asignado + ", usuario_id_usuario=" + usuario_id_usuario + ", proceso_id_proceso=" + proceso_id_proceso + ", estado_tarea_id_estado=" + estado_tarea_id_estado + ", indicador_id_indicador=" + indicador_id_indicador + '}';
     }
-
-
-  
-
-
 }

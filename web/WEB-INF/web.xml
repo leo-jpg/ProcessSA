@@ -68,6 +68,10 @@
         <servlet-name>ServletTareaSub</servlet-name>
         <servlet-class>Controlador.ServletTareaSub</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletReasignarTarea</servlet-name>
+        <servlet-class>Controlador.ServletReasignarTarea</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletCerrarSesion</servlet-name>
         <url-pattern>/procesoCerrarSesion</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>ServletTareaSub</servlet-name>
         <url-pattern>/procesoTareaSub</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletReasignarTarea</servlet-name>
+        <url-pattern>/procesoReasignarTarea</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
