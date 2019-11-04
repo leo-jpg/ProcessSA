@@ -30,8 +30,8 @@
             <div class="logo"></div>
                 <ul>
                     <li><a href="inicio.jsp" target="centro">Inicio</a></li>
-                    <li><a href="GUI/QuienesSomos.php" target="centro">Quienes Somos</a></li>
-                    <li><a href="GUI/Ubicacion.php" target="centro">Ubicación</a></li>
+                    <li><a href="nosotros.jsp" target="centro">Quienes Somos</a></li>
+                    <li><a href="ubicacion.jsp" target="centro">Ubicación</a></li>
                     <li><a href="login.jsp" class="active">Login</a></li>
                     <!--<li><a href="#" class="active">Login</a></li>-->
                 </ul>

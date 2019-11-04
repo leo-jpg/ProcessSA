@@ -11,6 +11,7 @@ import Modelo.Tarea;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 import javax.servlet.ServletException;
@@ -66,7 +67,7 @@ public class ServletTarea extends HttpServlet {
 
 //            String plazo = request.getParameter("DtPlazo");
             String plazo = request.getParameter("DtPlazo");
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date formato = sdf.parse(plazo);
             java.sql.Date fecha = new java.sql.Date(formato.getTime());
 

@@ -142,8 +142,8 @@ public class UsuarioDAO implements Metodos<Usuario>{
                 usuario.setDireccion(rs.getString("direccion"));
                 usuario.setRut(rs.getString("rut"));
                 usuario.setEmail(rs.getString("email"));
-                usuario.setRoldes(rs.getString("roldes"));
-                usuario.setUnides(rs.getString("unides"));
+                usuario.setRoldes(rs.getString("rol_id_rol"));
+                usuario.setUnides(rs.getString("unidad_interna_id_unidad"));
                 lista.add(usuario);
             }
 
