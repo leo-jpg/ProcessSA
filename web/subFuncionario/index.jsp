@@ -72,11 +72,11 @@
                     </a>
                   </li>
                   <li class="slider--item slider--item-right">
-                    <a href="#0">
+                    <a href="../procesotListaCumplimiento">
                       <div class="slider--item-image">
-                          <img src="assets/img/agregarTarea.jpg" alt="">
+                          <img src="assets/img/aceptada.jpg" alt="">
                       </div>
-                      <p class="slider--item-title">Visualizar Estado</p>
+                      <p class="slider--item-title">Tarea Aceptada</p>
                     </a>
                   </li>
                      <li class="slider--item">
