@@ -66,7 +66,7 @@ public class ServletTarea extends HttpServlet {
 
 //            String plazo = request.getParameter("DtPlazo");
             String plazo = request.getParameter("DtPlazo");
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date formato = sdf.parse(plazo);
             java.sql.Date fecha = new java.sql.Date(formato.getTime());
 
