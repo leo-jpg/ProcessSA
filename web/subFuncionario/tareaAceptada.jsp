@@ -21,12 +21,13 @@
 
     </head>
     <body>
+        
         <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
         <sql:query dataSource="${dataSource}" var="tipo">
             SELECT id_tarea, nombre, descripcion, plazo, cumplimiento, id_usuario_asignado, proceso_id_proceso, estado_tarea_id_estado, indicador_id_indicador 
             FROM tarea where id_usuario_asignado=${id} and estado_tarea_id_estado=2
         </sql:query> 
-
+        <form action="procesoEjecutarTarea" method="POST">
         <div class="container mt-4">
             <div class="card">
                 <div class="card-header">
@@ -55,15 +56,16 @@
                                     <td>${aux.nombre}</td>
                                     <td>${aux.descripcion}</td>
                                     <td>${aux.plazo}</td>
-                                    <td>${aux.cumplimiento}</td>
+                                    <!--<td>${aux.cumplimiento}</td>-->
+                                    <td><input type="number" name="txtCumplimiento" value="${aux.cumplimiento}" min="0" max="100"></td>
                                     <td>${aux.proceso_id_proceso}</td>
                                     <td>${aux.estado_tarea_id_estado}</td>
                                     <td>${aux.indicador_id_indicador}</td>
                                     <td>
-                                        <form action="procesoEjecutarTarea" method="POST">
+                                        
                                             <input type="hidden" name="id" value="${aux.id_tarea}">
-                                            <input type="submit" name="btnAccion" value="Ejecutar" class="btn btn-primary">
-                                        </form>
+                                            <input type="submit" name="btnAccion" value="Guardar Avance" class="btn btn-primary">
+                                    
                                     </td>
                                     <!--
                                     <td>
@@ -96,7 +98,8 @@
                 <a href="subFuncionario/index.jsp"<button class="btn btn-success">Volver</a>
             </div>
         </div>
-
+    </form>
     </body>
+    
 </html>
 

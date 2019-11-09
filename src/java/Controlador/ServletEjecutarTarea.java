@@ -33,7 +33,7 @@ public class ServletEjecutarTarea extends HttpServlet {
             throws ServletException, IOException {
         String opcion = request.getParameter("btnAccion");
 
-        if (opcion.equals("Ejecutar")) {
+        if (opcion.equals("Guardar Avance")) {
             ejecutar(request, response);
         }
     }
@@ -42,7 +42,9 @@ public class ServletEjecutarTarea extends HttpServlet {
             throws ServletException, IOException {
         try {
             int id_tarea = Integer.parseInt(request.getParameter("id"));
-            int cumplimiento = 100;
+            //int cumplimiento = 100;
+            int cumplimiento = Integer.parseInt(request.getParameter("txtCumplimiento"));
+                    
         
         Tarea tarea = new Tarea(id_tarea, cumplimiento,"a");
         CumplimientoDAO dao = new CumplimientoDAO();

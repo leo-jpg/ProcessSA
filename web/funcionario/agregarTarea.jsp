@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <body>
         <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
         <sql:query dataSource="${dataSource}" var="tipo">
-            SELECT id_usuario, usuario from usuario where rol_id_rol = 2
+            SELECT id_usuario, usuario from usuario where rol_id_rol = 4
         </sql:query> 
         <sql:query dataSource="${dataSource}" var="tipo2">
             SELECT id_proceso, nombre from proceso
