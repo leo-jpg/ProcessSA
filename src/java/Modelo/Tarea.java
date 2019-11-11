@@ -17,6 +17,7 @@ public class Tarea {
     private String descripcion;
     private Date plazo;
     private int cumplimiento;
+    private String observacion;
     private int id_usuario_asignado;
     private int usuario_id_usuario;
     private int proceso_id_proceso;
@@ -26,11 +27,25 @@ public class Tarea {
     private String proceso;
     private String estado;
     private String indicador;
+    private int checkeado;
 
 
     public Tarea() {
     }
 
+    public Tarea(String nombre, String descripcion, Date plazo, int cumplimiento, String observacion, int usuario_id_usuario, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador, int checkeado) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.plazo = plazo;
+        this.cumplimiento = cumplimiento;
+        this.observacion = observacion;
+        this.usuario_id_usuario = usuario_id_usuario;
+        this.proceso_id_proceso = proceso_id_proceso;
+        this.estado_tarea_id_estado = estado_tarea_id_estado;
+        this.indicador_id_indicador = indicador_id_indicador;
+        this.checkeado = checkeado;
+    }
+ 
     public Tarea(int id_tarea, int id_usuario_asignado, int estado_tarea_id_estado) {
         this.id_tarea = id_tarea;
         this.id_usuario_asignado = id_usuario_asignado;
@@ -57,6 +72,25 @@ public class Tarea {
         this.estado = estado;
         this.indicador = indicador;
     }
+
+    public Tarea(String nombre, String descripcion, Date plazo, int cumplimiento, String observacion, int id_usuario_asignado, int usuario_id_usuario, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador, String proceso, String estado, String indicador, char checkeado) {
+        
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.plazo = plazo;
+        this.cumplimiento = cumplimiento;
+        this.observacion = observacion;
+        this.id_usuario_asignado = id_usuario_asignado;
+        this.usuario_id_usuario = usuario_id_usuario;
+        this.proceso_id_proceso = proceso_id_proceso;
+        this.estado_tarea_id_estado = estado_tarea_id_estado;
+        this.indicador_id_indicador = indicador_id_indicador; 
+        this.proceso = proceso;
+        this.estado = estado;
+        this.indicador = indicador;
+        this.checkeado = checkeado;
+    }
+    
  
     public Tarea(int id_tarea, String nombre, String descripcion, Date plazo, int cumplimiento, int id_usuario_asignado, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador) {
         this.id_tarea = id_tarea;
@@ -212,8 +246,28 @@ public class Tarea {
         this.indicador = indicador;
     }    
 
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+
+    public int getCheckeado() {
+        return checkeado;
+    }
+
+    public void setCheckeado(int checkeado) {
+        this.checkeado = checkeado;
+    }
+
     @Override
     public String toString() {
-        return "Tarea{" + "id_tarea=" + id_tarea + ", nombre=" + nombre + ", descripcion=" + descripcion + ", plazo=" + plazo + ", cumplimiento=" + cumplimiento + ", id_usuario_asignado=" + id_usuario_asignado + ", usuario_id_usuario=" + usuario_id_usuario + ", proceso_id_proceso=" + proceso_id_proceso + ", estado_tarea_id_estado=" + estado_tarea_id_estado + ", indicador_id_indicador=" + indicador_id_indicador + '}';
+        return "Tarea{" + "id_tarea=" + id_tarea + ", nombre=" + nombre + ", descripcion=" + descripcion + ", plazo=" + plazo + ", cumplimiento=" + cumplimiento + ", observacion=" + observacion + ", id_usuario_asignado=" + id_usuario_asignado + ", usuario_id_usuario=" + usuario_id_usuario + ", proceso_id_proceso=" + proceso_id_proceso + ", estado_tarea_id_estado=" + estado_tarea_id_estado + ", indicador_id_indicador=" + indicador_id_indicador + ", usuasig=" + usuasig + ", proceso=" + proceso + ", estado=" + estado + ", indicador=" + indicador + ", checkeado=" + checkeado + '}';
     }
+
+
+
+   
 }

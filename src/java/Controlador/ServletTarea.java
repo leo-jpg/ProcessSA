@@ -72,13 +72,18 @@ public class ServletTarea extends HttpServlet {
             java.sql.Date fecha = new java.sql.Date(formato.getTime());
 
             int cumplimiento = 0;
+            String observacion = null;
             int id_usu_asig = Integer.parseInt(request.getParameter("cboUsuario"));
 
             int id_proceso = Integer.parseInt(request.getParameter("cboProceso"));
             int id_estado = 1;
             int id_indicador = 1;
+            int checkeado = 1;
+            // check = "1";
+            //char checkeado = check.charAt(0);
 
-            Tarea tarea = new Tarea(nombre, descripcion, fecha, cumplimiento, id_usu_asig, id, id_proceso, id_estado, id_indicador);
+            //Tarea tarea = new Tarea();
+            Tarea tarea = new Tarea(nombre, descripcion, fecha, cumplimiento, observacion, id_usu_asig, id_proceso, id_estado, id_indicador, checkeado);
 //            Tarea tarea = new Tarea(responsable, fecha, descripcion, cumplimiento, id_usu_asig, id_indicador, nombre, id_proceso);
             TareaDAO dao = new TareaDAO();
 

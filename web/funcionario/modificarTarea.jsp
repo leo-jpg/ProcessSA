@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <body>
         <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
         <sql:query dataSource="${dataSource}" var="tipo">
-            SELECT id_tarea, nombre from tarea where usuario_id_usuario = ${id}
+            SELECT id_tarea, nombre from tarea 
         </sql:query> 
              <sql:query dataSource="${dataSource}" var="tipo2">
             SELECT id_usuario, usuario from usuario where rol_id_rol = 4
@@ -81,12 +81,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <input type="date" name="DtPlazo" required="">
                         </span>
                     </div>                
-                    <div class="w3_agileits_main_grid w3l_main_grid">
+                    <!--<div class="w3_agileits_main_grid w3l_main_grid">
                         <span class="agileits_grid">
                             <label>Cumplimiento<i>:</i></label>
                             <input type="number" name="nbCumplimiento"  required="">
                         </span>
-                    </div>
+                    </div>-->
                     <div class="agileits_main_grid w3_agileits_main_grid">
                         <span class="wthree_grid">
                             <label>Seleccione Usuario Asignado<i>:</i></label>

@@ -22,7 +22,7 @@ import oracle.jdbc.OracleTypes;
  * @author RepjA
  */
 public class TareaDAO implements Metodos<Tarea>{
-    private static final String SQL_INSERT = "{call sp_insertar_tar(?,?,?,?,?,?,?,?,?)}";
+    private static final String SQL_INSERT = "{call sp_insertar_tar(?,?,?,?,?,?,?,?,?,?,?)}";
     private static final String SQL_UPDATE = "{call sp_modificar_tar(?,?,?,?,?,?,?,?,?)}";
     private static final String SQL_DELETE = "{call sp_eliminar_tar(?)}";
     private static final String SQL_READALL = "{call sp_listar_tar(?)}";
@@ -38,11 +38,15 @@ public class TareaDAO implements Metodos<Tarea>{
             pre.setString(2, generico.getDescripcion());
             pre.setDate(3, generico.getPlazo());
             pre.setInt(4, generico.getCumplimiento());
-            pre.setInt(5, generico.getId_usuario_asignado());
-            pre.setInt(6, generico.getUsuario_id_usuario());
-            pre.setInt(7, generico.getProceso_id_proceso());
-            pre.setInt(8, generico.getEstado_tarea_id_estado());
-            pre.setInt(9, generico.getIndicador_id_indicador());
+            pre.setString(5, generico.getObservacion());
+            pre.setInt(6, generico.getId_usuario_asignado());
+            pre.setInt(7, generico.getUsuario_id_usuario());
+            pre.setInt(8, generico.getProceso_id_proceso());
+            pre.setInt(9, generico.getEstado_tarea_id_estado());
+            pre.setInt(10, generico.getIndicador_id_indicador());
+            pre.setInt(11, generico.getCheckeado());
+            //pre.setCharacterStream(11, generico.getCheckeado());
+            
 
             if (pre.executeUpdate() > 0) {
                 return true;

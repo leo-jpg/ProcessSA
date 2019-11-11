@@ -46,7 +46,7 @@
                                 <th>ESTADO TAREA</th>
                                 <th>INDICADOR</th>
                                 <th>ACCION</th>
-                                <!--<th>JUSTIFICATIVO</th>-->
+                                <th>OBSERVACION</th>
                             </tr>
                         </thead>
                         <c:forEach var="aux" items="${tipo.rows}">
