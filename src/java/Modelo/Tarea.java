@@ -33,18 +33,23 @@ public class Tarea {
     public Tarea() {
     }
 
-    public Tarea(String nombre, String descripcion, Date plazo, int cumplimiento, String observacion, int usuario_id_usuario, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador, int checkeado) {
+ 
+
+    public Tarea(String nombre, String descripcion, Date plazo, int cumplimiento, String observacion, int id_usuario_asignado, int usuario_id_usuario, int proceso_id_proceso, int estado_tarea_id_estado, int indicador_id_indicador, int checkeado) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.plazo = plazo;
         this.cumplimiento = cumplimiento;
         this.observacion = observacion;
+        this.id_usuario_asignado = id_usuario_asignado;
         this.usuario_id_usuario = usuario_id_usuario;
         this.proceso_id_proceso = proceso_id_proceso;
         this.estado_tarea_id_estado = estado_tarea_id_estado;
         this.indicador_id_indicador = indicador_id_indicador;
         this.checkeado = checkeado;
     }
+    
+    
  
     public Tarea(int id_tarea, int id_usuario_asignado, int estado_tarea_id_estado) {
         this.id_tarea = id_tarea;

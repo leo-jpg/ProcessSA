@@ -28,7 +28,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <body>
         <sql:setDataSource var="dataSource" driver="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:XE" user="TASK" password="admin"></sql:setDataSource>
         <sql:query dataSource="${dataSource}" var="tipo">
-            SELECT id_tarea, descripcion from tarea where usuario_id_usuario = ${id}
+            SELECT id_tarea, descripcion from tarea
         </sql:query> 
         <div class="main">
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

@@ -83,7 +83,8 @@ public class ServletTarea extends HttpServlet {
             //char checkeado = check.charAt(0);
 
             //Tarea tarea = new Tarea();
-            Tarea tarea = new Tarea(nombre, descripcion, fecha, cumplimiento, observacion, id_usu_asig, id_proceso, id_estado, id_indicador, checkeado);
+            Tarea tarea = new Tarea(nombre, descripcion, fecha, cumplimiento, observacion, id_usu_asig, id, id_proceso, id_estado, id_indicador, checkeado);
+            
 //            Tarea tarea = new Tarea(responsable, fecha, descripcion, cumplimiento, id_usu_asig, id_indicador, nombre, id_proceso);
             TareaDAO dao = new TareaDAO();
 
@@ -112,10 +113,10 @@ public class ServletTarea extends HttpServlet {
             String descripcion = request.getParameter("txtDescripcion");
 
             String plazo = request.getParameter("DtPlazo");
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date formato = sdf.parse(plazo);
-            java.sql.Date fecha = new java.sql.Date(formato.getDate());
-            int cumplimiento = Integer.parseInt(request.getParameter("nbCumplimiento"));
+            java.sql.Date fecha = new java.sql.Date(formato.getTime());
+            int cumplimiento = 0;
             int id_usu_asig = Integer.parseInt(request.getParameter("cboUsuario"));
             int id_proceso = Integer.parseInt(request.getParameter("cboProceso"));
             int id_estado = Integer.parseInt(request.getParameter("cboEstado"));
