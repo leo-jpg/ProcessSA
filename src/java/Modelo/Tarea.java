@@ -48,6 +48,11 @@ public class Tarea {
         this.indicador_id_indicador = indicador_id_indicador;
         this.checkeado = checkeado;
     }
+
+    public Tarea(int id_tarea, String observacion) {
+        this.id_tarea = id_tarea;
+        this.observacion = observacion;
+    }
     
     
  

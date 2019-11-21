@@ -5,20 +5,23 @@
  */
 package Controlador;
 
-import DAO.CumplimientoDAO;
+import DAO.ObservacionDAO;
 import Modelo.Tarea;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
-
+ * @author Roger
  */
-public class ServletEjecutarTarea extends HttpServlet {
+@WebServlet(name = "ServletObservacion", urlPatterns = {"/procesoModificarObservacion"})
+public class ServletObservacion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,32 +34,19 @@ public class ServletEjecutarTarea extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String opcion = request.getParameter("btnAccion");
-
-        if (opcion.equals("Guardar Avance")) {
-            ejecutar(request, response);
-        }
-    }
     
-    protected void ejecutar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            int id_tarea = Integer.parseInt(request.getParameter("id"));
-            //int cumplimiento = 100;
-            int cumplimiento = Integer.parseInt(request.getParameter("txtCumplimiento"));
-                    
-        
-        Tarea tarea = new Tarea(id_tarea, cumplimiento,"a");
-        CumplimientoDAO dao = new CumplimientoDAO();
-         if (dao.update(tarea)) {
-                request.setAttribute("msjOK", "Tarea Ejecutada correctamente");
-            } else {
-                request.setAttribute("msjNO", "Error al ejecutar Tarea");
-            }
-        } catch (Exception e) {
-            request.setAttribute("msjNO", "Error: " + e.getMessage());
-        } finally {
-            request.getRequestDispatcher("procesotListaCumplimiento").forward(request, response);
+       int id = Integer.parseInt(request.getParameter("id"));
+
+        HttpSession se = request.getSession();
+        se.setAttribute("idTarea", id);
+
+        request.getSession().setAttribute("idTa", id);
+        request.getRequestDispatcher("subFuncionario/problemaTarea.jsp").forward(request, response);
+       
+           String opcion = request.getParameter("btnAccion");
+          
+           if (opcion.equals("Guardar")) {
+            guardar(request, response);
         }
         
     }
@@ -100,4 +90,24 @@ public class ServletEjecutarTarea extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private void guardar(HttpServletRequest request, HttpServletResponse response)
+    
+     throws ServletException, IOException {
+        try{
+         int id_tarea = Integer.parseInt(request.getParameter("id"));
+         String observacion = request.getParameter("txtObservacion");
+         
+         Tarea tarea = new Tarea(id_tarea, observacion);
+         ObservacionDAO dao = new ObservacionDAO();
+         if (dao.update(tarea)) {
+                request.setAttribute("msjOK", "Tarea Ejecutada correctamente");
+            } else {
+                request.setAttribute("msjNO", "Error al ejecutar Tarea");
+            }    
+    } catch (Exception e) {
+            request.setAttribute("msjNO", "Error: " + e.getMessage());
+        } finally {
+            request.getRequestDispatcher("procesotListaCumplimiento").forward(request, response);
+        }
+        }
 }

@@ -72,7 +72,7 @@ public class ServletTarea extends HttpServlet {
             java.sql.Date fecha = new java.sql.Date(formato.getTime());
 
             int cumplimiento = 0;
-            String observacion = null;
+            String observacion = "0";
             int id_usu_asig = Integer.parseInt(request.getParameter("cboUsuario"));
 
             int id_proceso = Integer.parseInt(request.getParameter("cboProceso"));
